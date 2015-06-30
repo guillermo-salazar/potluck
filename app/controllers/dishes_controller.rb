@@ -24,6 +24,10 @@ class DishesController < ApplicationController
   def destroy
   end
 
+  def show
+    @dish = current_user.dishes.find_by(params[:dish_id])
+  end
+
   private
   def dish_params
     params.require(:dish).permit(:description, :name, :serving, :user_id)
