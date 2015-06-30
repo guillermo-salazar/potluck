@@ -1,5 +1,4 @@
 <li id="dishes-<%= dish.id %>">
-  <%= link_to gravatar_for(dish.user, size: 50), dish.user %>
   <span class="user"><%= link_to dish.user.name, dish.user %></span>
-  <span class="content"><%= dish.description %></span>
+  <span class="description"><%= dish.description %></span>
 </li>

@@ -4,13 +4,8 @@
     <%= f.label :name %>
     <%= f.text_field :name, class: 'form-control' %>
 
-    <%= f.label :dish %>
-    <%= f.collection_select :dish_id,
-                            Dish.all,
-                            :id,
-                            :name,
-                            {prompt: "Select an owner"},
-                            class: "form-control" %>
+    <%= f.label :dish_id %>
+    <%= f.number_field :dish_id, class: 'form-control' %>
 
     <%= f.label :description %>
     <%= f.text_area :description %>

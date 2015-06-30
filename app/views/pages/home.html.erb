@@ -4,10 +4,19 @@
       <section class="user_info">
         <%= render "shared/user_info" %>
       </section>
+    </aside>
+    <div class="col-md-4">
+      My Dishes
       <section class="dish_form">
         <%= render 'shared/dish_form' %>
       </section>
-    </aside>
+    </div>
+    <div class="col-md-4">
+      My Events
+      <section class="event_form">
+        <%= render 'shared/event_form' %>
+      </section>
+    </div>
   </div>
 <% else %>
   <div class="center jumbotron">
