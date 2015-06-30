@@ -7,4 +7,13 @@
       </h1>
     </section>
   </aside>
+  <div class="col-md-8">
+    <% if @user.dishes.any? %>
+      <h3> Dishes (<%= @user.dishes.count %>)</h3>
+      <ol class="dishes">
+        <%= render @dishes %>
+      </ol>
+      <%= will_paginate @dishes %>
+    <% end %>
+  </div>
 </div>
