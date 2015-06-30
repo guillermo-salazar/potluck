@@ -1,7 +1,12 @@
 class PagesController < ApplicationController
   def home
-    @dish = current_user.dishes.build if logged_in?
-    @event = current_user.events.build if logged_in?
+    if logged_in?
+      @user = current_user
+      @dish = current_user.dishes.build
+      @event = current_user.events.build
+      @dishes = current_user.dishes.paginate(page: params[:page])
+      @events = current_user.events.paginate(page: params[:page])
+    end
   end
 
   def help

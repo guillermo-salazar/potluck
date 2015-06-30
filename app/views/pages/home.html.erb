@@ -8,14 +8,30 @@
     <div class="col-md-4">
       My Dishes
       <section class="dish_form">
-        <%= render 'shared/dish_form' %>
+         <div id="dish-form" style="display:none;"></div>
+         <%= link_to 'New Dish', new_dish_path, remote: true%>
       </section>
+      <% if @user.dishes.any? %>
+        <h3> Dishes (<%= @user.dishes.count %>)</h3>
+        <ol class="dishes">
+          <%= render @dishes %>
+        </ol>
+        <%= will_paginate @dishes %>
+      <% end %>
     </div>
     <div class="col-md-4">
       My Events
       <section class="event_form">
-        <%= render 'shared/event_form' %>
+        <div id="event-form" style="display:none;"></div>
+        <%= link_to 'New Event', new_event_path, remote: true%>
       </section>
+      <% if @user.events.any? %>
+        <h3> Events (<%= @user.dishes.count %>)</h3>
+        <ol class="events">
+          <%= render @events %>
+        </ol>
+        <%= will_paginate @events %>
+      <% end %>
     </div>
   </div>
 <% else %>

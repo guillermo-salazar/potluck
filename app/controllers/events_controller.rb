@@ -12,6 +12,10 @@ class EventsController < ApplicationController
     end
   end
 
+  def new
+    @event = Event.new
+  end
+
   def destroy
   end
 

@@ -12,8 +12,8 @@ Rails.application.routes.draw do
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
   resources :users
-  resources :dishes, only: [:create, :destroy]
-  resources :events, only: [:create, :destroy]
+  resources :dishes, only: [:create, :destroy, :new]
+  resources :events, only: [:create, :destroy, :new]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
