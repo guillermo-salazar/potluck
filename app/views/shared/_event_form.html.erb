@@ -1,0 +1,23 @@
+<%= form_for(@event) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control' %>
+
+    <%= f.label :dish %>
+    <%= f.collection_select :dish_id,
+                            Dish.all,
+                            :id,
+                            :name,
+                            {prompt: "Select an owner"},
+                            class: "form-control" %>
+
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+
+    <%= f.label :location %>
+    <%= f.text_area :location %>
+
+  </div>
+  <%= f.submit "Create", class: "btn btn-primary" %>
+<% end %>
