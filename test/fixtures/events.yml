@@ -2,14 +2,12 @@
 
 one:
   name: MyString
-  user_id: 
-  dish_id: 
+  user_id:
   description: MyText
   location: MyText
 
 two:
   name: MyString
   user_id: 
-  dish_id: 
   description: MyText
   location: MyText
