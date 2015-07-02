@@ -1,6 +1,6 @@
 class DishesController < ApplicationController
   before_action :logged_in_user, only: [:create, :destroy, :new]
-  before_action :set_dish, only: [:edit, :update, :destroy]
+  # before_action :set_dish, only: [:edit, :update, :destroy]
 
 
   def create
@@ -25,7 +25,7 @@ class DishesController < ApplicationController
   end
 
   def show
-    @dish = current_user.dishes.find_by(params[:dish_id])
+    @dish = Dish.find(params[:id])
   end
 
   private

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150630033843) do
+ActiveRecord::Schema.define(version: 20150702184242) do
 
   create_table "dishes", force: :cascade do |t|
     t.string   "name"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20150630033843) do
     t.text     "location"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.date     "event_date"
   end
 
   add_index "events", ["dish_id"], name: "index_events_on_dish_id"
@@ -48,6 +49,18 @@ ActiveRecord::Schema.define(version: 20150630033843) do
   add_index "groups", ["host_id", "participant_id"], name: "index_groups_on_host_id_and_participant_id", unique: true
   add_index "groups", ["host_id"], name: "index_groups_on_host_id"
   add_index "groups", ["participant_id"], name: "index_groups_on_participant_id"
+
+  create_table "guests", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "dish_id"
+    t.integer  "event_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "guests", ["dish_id"], name: "index_guests_on_dish_id"
+  add_index "guests", ["event_id"], name: "index_guests_on_event_id"
+  add_index "guests", ["user_id"], name: "index_guests_on_user_id"
 
   create_table "ingredients", force: :cascade do |t|
     t.string   "name"
