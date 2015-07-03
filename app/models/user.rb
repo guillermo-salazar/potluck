@@ -2,7 +2,8 @@ class User < ActiveRecord::Base
   has_many :dishes, dependent: :destroy
   has_many :events, dependent: :destroy
   has_and_belongs_to_many :allergies
-  # has_and_belongs_to_many :events,class: "Guest", join_table: "Guest"
+  has_many :guests
+  has_many :events, through: :guests
 
   attr_accessor :remember_token
 

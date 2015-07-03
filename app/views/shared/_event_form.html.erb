@@ -4,16 +4,14 @@
     <%= f.label :name %>
     <%= f.text_field :name, class: 'form-control' %>
 
-    <%= f.label :dish_id %>
-    <!-- <%= f.number_field :dish_id, class: 'form-control' %> -->
-    <%= f.collection_select :dish_id, current_user.dishes, :id, :name%>
-
-    <%= f.label :description %>
-    <%= f.text_area :description %>
-
     <%= f.label :location %>
     <%= f.text_area :location %>
 
+    <%= f.label :event_date %>
+    <%= f.date_select :event_date, class: 'form-control' %>
+
+    <%= f.label :description %>
+    <%= f.text_area :description %>
   </div>
   <%= f.submit "Create", class: "btn btn-primary" %>
 <% end %>
