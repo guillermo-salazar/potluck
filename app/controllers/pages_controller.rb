@@ -5,7 +5,7 @@ class PagesController < ApplicationController
       @dish = current_user.dishes.build
       @event = current_user.events.build
       @dishes = current_user.dishes.paginate(page: params[:page])
-      @events = current_user.events.paginate(page: params[:page])
+      @events = current_user.owned_events.paginate(page: params[:page])
       # @users = User.all
     end
   end
