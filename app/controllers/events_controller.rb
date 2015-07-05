@@ -2,7 +2,7 @@ class EventsController < ApplicationController
   before_action :logged_in_user, only: [:create, :destroy]
 
   def create
-    @event = current_user.events.build(event_params)
+    @event = current_user.owned_events.build(event_params)
     @dishes = current_user.dishes.all
     if @event.save
       flash[:success] = "Event Created!"
@@ -25,6 +25,6 @@ class EventsController < ApplicationController
 
   private
     def event_params
-      params.require(:event).permit(:name, :location, :user_id, :description)
+      params.require(:event).permit(:name, :location, :user_id, :description, :event_date)
     end
 end

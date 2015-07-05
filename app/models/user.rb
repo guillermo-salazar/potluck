@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   has_many :dishes, dependent: :destroy
-  has_many :events, dependent: :destroy
+  has_many :owned_events, dependent: :destroy, foreign_key: :owner_id, class_name: Event
   has_and_belongs_to_many :allergies
   has_many :guests
   has_many :events, through: :guests
