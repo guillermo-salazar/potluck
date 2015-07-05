@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :allergies
   has_many :guests
   has_many :events, through: :guests
+  has_many :sent_invitations, class_name: 'Invitation', foreign_key: 'sender_id'
+  belongs_to :invitation
 
   attr_accessor :remember_token
 

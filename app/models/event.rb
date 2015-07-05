@@ -3,4 +3,5 @@ class Event < ActiveRecord::Base
   belongs_to :dish
   has_many :guests
   has_many :users, through: :guests
+  has_many :invitations
 end
