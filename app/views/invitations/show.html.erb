@@ -1,0 +1,5 @@
+<h1> <%= @invitation.event.name %> </h1>
+<%= render @invitation.event %>
+<% if invited? @invitation %>
+<%= link_to "Accept!", accept_invitation_path(@invitation), class: "btn btn-primary" %>
+<% end %>

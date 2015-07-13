@@ -1,0 +1,13 @@
+<%= form_for(@invitation) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <div class="field">
+    <%= f.label :recipient_id %>
+    <%= f.collection_select :recipient_id, User.all, :id, :name,
+          {prompt: "Select a Guest"}, class: "form-control" %>
+    <%= f.label :event_id %>
+    <%= f.text_field :event_id, value: @event.id, readonly: "readonly" %>
+  </div>
+  <%= f.submit "Invite", class: "btn btn-primary" %>
+  <div class="field ">
+  </div>
+<% end %>

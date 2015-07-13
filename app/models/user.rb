@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   has_many :guests
   has_many :events, through: :guests
   has_many :sent_invitations, class_name: 'Invitation', foreign_key: 'sender_id'
-  belongs_to :invitation
+  has_many :invitations, foreign_key: 'recipient_id'
 
   attr_accessor :remember_token
 

@@ -29,7 +29,7 @@ class DishesController < ApplicationController
   end
 
   private
-  def dish_params
-    params.require(:dish).permit(:description, :name, :serving, :user_id)
-  end
+    def dish_params
+      params.require(:dish).permit(:description, :name, :serving, :user_id)
+    end
 end

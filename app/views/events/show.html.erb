@@ -6,5 +6,6 @@
 <p> <%= @event.description %> </p>
 
 <% if owner? @event %>
-  <%= link_to "Invite Guest!", '#', class: "btn btn-primary" %>
+  <div id="invitation-form" style="display:none;"></div>
+  <%= link_to "Invite Guest!", new_invitation_path(id: @event.id), class: "btn btn-primary", remote: true %>
 <% end %>

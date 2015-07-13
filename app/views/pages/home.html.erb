@@ -31,6 +31,17 @@
         <%= link_to 'New Event', new_event_path, remote: true%>
       </section>
     </div>
+    <div class="col-sm-2">
+      <% if @user.invitations.any? %>
+      <h3> Invitations (<%=@user.invitations.count %>)</h3>
+      <ol class= "invites">
+        <%= render @invitations %>
+      </ol>
+      <%= will_paginate @invitations %>
+      <% end %>
+    </div>
+    <!-- <div class="col-sm-2"> -->
+
   </div>
 <% else %>
   <div class="center jumbotron">

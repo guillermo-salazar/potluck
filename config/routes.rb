@@ -14,6 +14,9 @@ Rails.application.routes.draw do
   resources :users
   resources :dishes, only: [:create, :destroy, :new, :show]
   resources :events, only: [:create, :destroy, :new, :show]
+  resources :invitations
+  # get "/invitations/new.:id" => "invitations#new"
+  post '/invitations/accept/:id', to: 'invitations#accept', as: 'accept_invitation'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
