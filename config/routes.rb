@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   resources :invitations
   # get "/invitations/new.:id" => "invitations#new"
   post '/invitations/accept/:id', to: 'invitations#accept', as: 'accept_invitation'
+  post '/invitations/decline/:id', to: 'invitations#decline', as: 'decline_invitation'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

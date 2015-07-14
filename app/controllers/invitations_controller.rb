@@ -10,12 +10,24 @@ class InvitationsController < ApplicationController
       render 'pages/home'
     end
   end
-  # def accept
-  #   @invitation = Invitation.find(params[:id])
-  #   @invitation.accept = true
-  #   @invitation.save
-  #
-  # end
+  def accept
+    @invitation = Invitation.find(params[:id])
+    @invitation.accept = true
+    if @invitation.save
+      @guest = Guest.new(user: current_user, event: @invitation.event)
+      @guest.save
+      flash[:success] = "Accepted Invitation"
+    end
+    redirect_to root_url
+  end
+  def decline
+    @invitation = Invitation.find(params[:id])
+    @invitation.accept = false
+    if @invitation.save
+      flash[:success] = "Declined Invitation"
+    end
+    redirect_to root_url
+  end
   def new
     @event = Event.find(params[:id])
     @invitation = Invitation.new

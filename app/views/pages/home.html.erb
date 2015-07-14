@@ -32,8 +32,8 @@
       </section>
     </div>
     <div class="col-sm-2">
-      <% if @user.invitations.any? %>
-      <h3> Invitations (<%=@user.invitations.count %>)</h3>
+      <% if @invitations.any? %>
+      <h3>Open Invitations (<%=@invitations.count %>)</h3>
       <ol class= "invites">
         <%= render @invitations %>
       </ol>
