@@ -5,6 +5,14 @@
 <p> Location: <%= @event.location %></p>
 <p> <%= @event.description %> </p>
 
+<% if @event.guests %>
+  Current Guest
+  <ul>
+  <% @event.guests.each do |guest| %>
+    <li> <%= guest.user.name %> </li>
+    <% end %>
+  </ul>
+<% end %>
 <% if owner? @event %>
   <div id="invitation-form" style="display:none;"></div>
   <%= link_to "Invite Guest!", new_invitation_path(id: @event.id), class: "btn btn-primary", remote: true %>

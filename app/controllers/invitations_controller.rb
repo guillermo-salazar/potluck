@@ -30,6 +30,7 @@ class InvitationsController < ApplicationController
   end
   def new
     @event = Event.find(params[:id])
+    @guests = User.where.not(id: current_user.id)
     @invitation = Invitation.new
   end
 
