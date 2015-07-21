@@ -6,6 +6,52 @@
       </section>
     </aside>
     <div class="col-md-4">
+<!-- dishes -->
+    </div>
+    <div class="col-md-4">
+<!--  events -->
+    </div>
+    <div class="col-sm-2">
+<!--  invitations-->
+    </div>
+    <!-- <div class="col-sm-2"> -->
+
+  </div>
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#events" aria-controls="events" role="tab" data-toggle="tab">Events<%= "(#{@user.owned_events.count})" if @user.owned_events.count > 0 %></a></li>
+    <li role="presentation"><a href="#invitations" aria-controls="invitations" role="tab" data-toggle="tab">Invitations<%= "(#{@invitations.count})" if @invitations.count > 0%></a></li>
+    <li role="presentation"><a href="#dishes" aria-controls="dishes" role="tab" data-toggle="tab">Dishes</a></li>
+    <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="events">
+
+      <% if @user.events.any? %>
+        <h3>Created(<%= @user.owned_events.count %>)</h3>
+        <ol class="events">
+          <%= render @events %>
+        </ol>
+        <%= will_paginate @events %>
+      <% end %>
+      <section class="event_form">
+        <div id="event-form" style="display:none;"></div>
+        <%= link_to 'New Event', new_event_path, remote: true%>
+      </section>
+      <h3>Going To(0)</h3>
+
+    </div>
+    <div role="tabpanel" class="tab-pane" id="invitations">
+        <% if @invitations.any? %>
+          <h3>Open Invitations (<%=@invitations.count %>)</h3>
+          <ol class= "invites">
+            <%= render @invitations %>
+          </ol>
+          <%= will_paginate @invitations %>
+          <% end %></div>
+    <div role="tabpanel" class="tab-pane" id="dishes">
       <% if @user.dishes.any? %>
         <h3> Dishes (<%= @user.dishes.count %>)</h3>
         <ol class="dishes">
@@ -18,31 +64,9 @@
          <%= link_to 'New Dish', new_dish_path, remote: true%>
       </section>
     </div>
-    <div class="col-md-4">
-      <% if @user.events.any? %>
-        <h3> Events (<%= @user.owned_events.count %>)</h3>
-        <ol class="events">
-          <%= render @events %>
-        </ol>
-        <%= will_paginate @events %>
-      <% end %>
-      <section class="event_form">
-        <div id="event-form" style="display:none;"></div>
-        <%= link_to 'New Event', new_event_path, remote: true%>
-      </section>
-    </div>
-    <div class="col-sm-2">
-      <% if @invitations.any? %>
-      <h3>Open Invitations (<%=@invitations.count %>)</h3>
-      <ol class= "invites">
-        <%= render @invitations %>
-      </ol>
-      <%= will_paginate @invitations %>
-      <% end %>
-    </div>
-    <!-- <div class="col-sm-2"> -->
-
+    <div role="tabpanel" class="tab-pane" id="settings">...</div>
   </div>
+</div>
 <% else %>
   <div class="center jumbotron">
     <h1>Welcome</h1>
@@ -52,3 +76,4 @@
     <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
   </div>
 <% end %>
+<div>
