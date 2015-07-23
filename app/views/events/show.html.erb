@@ -1,19 +1,28 @@
 
 <h1> <%= @event.name %> </h1>
+
+
+<h4 ><%= "Invited: #{going? @invitation}" if current_user.events.include? @event %> </h4>
 <p> Organizer: <%= @event.owner.name %></p>
 <p> When: <%= @event.event_date %></p>
 <p> Location: <%= @event.location %></p>
 <p> <%= @event.description %> </p>
 
+
 <% if @event.guests %>
   Current Guest
   <ul>
   <% @event.guests.each do |guest| %>
-    <li> <%= guest.user.name %> </li>
+    <li> <%= link_to guest.user.name, guest.user %> </li>
     <% end %>
   </ul>
 <% end %>
 <% if owner? @event %>
   <div id="invitation-form" style="display:none;"></div>
   <%= link_to "Invite Guest!", new_invitation_path(id: @event.id), class: "btn btn-primary", remote: true %>
+<% end %>
+
+<% if guest? @event %>
+  Dish: Something
+
 <% end %>

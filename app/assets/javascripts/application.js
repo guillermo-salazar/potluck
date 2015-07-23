@@ -20,15 +20,18 @@
 $('.invitation').hover(function(){
   $(this).css("text-decoration", "underline");
 });
+
 $('#invitations a').click(function (e) {
-  e.preventDefault()
-  $(this).tab('show')
-})
+  e.preventDefault();
+  $(this).tab('show');
+});
+
 $('#events a').click(function (e) {
-  e.preventDefault()
-  $(this).tab('show')
-})
+  e.preventDefault();
+  $(this).tab('show');
+});
+
 $('#dishes a').click(function (e) {
-  e.preventDefault()
-  $(this).tab('show')
-})
+  e.preventDefault();
+  $(this).tab('show');
+});

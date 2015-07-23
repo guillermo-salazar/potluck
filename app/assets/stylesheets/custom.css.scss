@@ -200,3 +200,6 @@ input {
     border-bottom: 1px solid $gray-lighter;
   }
 }
+.invitation span:hover {
+  text-decoration: underline;
+}

@@ -40,8 +40,12 @@
         <div id="event-form" style="display:none;"></div>
         <%= link_to 'New Event', new_event_path, remote: true%>
       </section>
-      <h3>Going To(0)</h3>
-
+      <h3>Going To(<%= @user.events.count %>)</h3>
+      <% if @user.guests.any? %>
+          <ul class="guests">
+            <%= render @user.events %>
+          </ul>
+      <% end %>
     </div>
     <div role="tabpanel" class="tab-pane" id="invitations">
         <% if @invitations.any? %>
