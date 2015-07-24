@@ -41,11 +41,13 @@
         <%= link_to 'New Event', new_event_path, remote: true%>
       </section>
       <h3>Going To(<%= @user.events.count %>)</h3>
-      <% if @user.guests.any? %>
-          <ul class="guests">
+      <section>
+      <% if @user.events.any? %>
+          <ul class="events">
             <%= render @user.events %>
           </ul>
       <% end %>
+    </section>
     </div>
     <div role="tabpanel" class="tab-pane" id="invitations">
         <% if @invitations.any? %>
@@ -80,4 +82,3 @@
     <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
   </div>
 <% end %>
-<div>

@@ -22,7 +22,6 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     @invitation = Invitation.where(event: @event, recipient: current_user).first
-    puts "Invited #{@invitation.accept}"
   end
 
   private

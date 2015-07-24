@@ -2,10 +2,6 @@
   <span class="invitation" data-toggle="modal" data-target="#show_invitation_<%= invitation.id %>"><%= invitation.event.name %></span>
 </li>
 
-
-<!-- Button trigger modal -->
-
-
 <!-- Modal -->
 <div class="modal fade" id="show_invitation_<%= invitation.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
@@ -18,7 +14,7 @@
         <%= invitation.event.description %><br>
         <% if invited? invitation %>
         <%= link_to "Accept!",  accept_invitation_path(invitation), class: "btn btn-primary", method: :post%>
-        <%= link_to "Decline.", decline_invitation_path(invitation), class: "btn btn-error", method: :post%>
+        <%= link_to "Decline.", decline_invitation_path(invitation), class: "btn btn-danger", method: :post%>
         <% end %>
       </div>
       <div class="modal-footer">
