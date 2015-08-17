@@ -1,28 +1,16 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Potluck
+This webapp lets you create an event and invite other register users to the event.
 
-Things you may want to cover:
+This application requires: 
+* Rails version 4.2.2
 
-* Ruby version
+== Database
+This application uses PostgreSQL with ActiveRecord in production and SQLite 3 in development
 
-* System dependencies
+== Development 
+* Template Engine: ERB
+* Testing Framework: RSpec
+* Front-end Framework: Twitter Bootstrap
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
