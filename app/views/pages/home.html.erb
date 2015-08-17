@@ -28,25 +28,24 @@
   <!-- Tab panes -->
   <div class="tab-content">
     <div role="tabpanel" class="tab-pane active" id="events">
-
-      <% if @user.events.any? %>
-        <h3>Created(<%= @user.owned_events.count %>)</h3>
-        <ol class="events">
-          <%= render @events %>
-        </ol>
-        <%= will_paginate @events %>
+      <% if @owned_events %>
+        <h3>Created(<%= @owned_events.count %>)</h3>
+        <ul class="events">
+          <%= render @owned_events %>
+        </ul>
+        <%= will_paginate @owned_events %>
       <% end %>
-      <section class="event_form">
-        <div id="event-form" style="display:none;"></div>
-        <%= link_to 'New Event', new_event_path, remote: true%>
-      </section>
+      <% if @user.events.any? %>
       <h3>Going To(<%= @user.events.count %>)</h3>
       <section>
-      <% if @user.events.any? %>
           <ul class="events">
             <%= render @user.events %>
           </ul>
       <% end %>
+    </section>
+    <section class="event_form">
+      <div id="event-form" style="display:none;"></div>
+      <%= link_to 'New Event', new_event_path, remote: true%>
     </section>
     </div>
     <div role="tabpanel" class="tab-pane" id="invitations">
