@@ -3,7 +3,7 @@ class EventsController < ApplicationController
 
   def create
     @event = current_user.owned_events.build(event_params)
-    @dishes = current_user.dishes.all
+    # @dishes = current_user.dishes.all
     if @event.save
       flash[:success] = "Event Created!"
       redirect_to root_url
